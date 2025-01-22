@@ -1,42 +1,50 @@
 import "./style.css";
-export default function LoginPage() {
+
+export default function HomePage() {
   return (
-    <>
-      <section className="login-page">
-        <div className="logo-container">
-          <img src="/argus-icon.png" alt="Argus" className="icon" />
-          <div className="text"></div>
+    <div className="home-page">
+      <header className="header">
+        <div className="header-content">
+          <h1>Bem-Vindo, Usuario</h1>
         </div>
-        <div className="login-forms">
-          <div>
-            <h2 className="title">Acesse a Plataforma</h2>
-            <h4 className="description">
-              Faça o login ou registre-se para começar a<br />
-              administrar seu apartamento
-            </h4>
-          </div>
-          <form action="" method="post">
-            <div className="fields-options">
-              <label htmlFor="cpf">CPF*</label>
-              <input type="text" id="cpf" name="cpf" required />
-            </div>
-            <div>
-              <label htmlFor="password">Senha*</label>
-              <input type="password" id="password" name="password" required />
-            </div>
-            <div className="additional-options">
-              <div>
-                <input type="checkbox" id="remember" name="remember" />
-                <label htmlFor="remember">Lembrar Senha</label>
-              </div>
-              <a href="/forgot-password">
-                <p>Esqueci minha senha</p>
-              </a>
-            </div>
-            <input className="button" type="button" value="ENTRAR" />
-          </form>
+        <img
+          src="header.png" // Substitua pelo URL da sua imagem
+          alt="Header Background"
+          className="header-image"
+        />
+      </header>
+
+      <div className="tabs">
+        <button className="tab active">Serviços</button>
+        <button className="tab">Regras e Normas</button>
+      </div>
+
+      <div className="services-container">
+        <div className="service">
+          <img src="Ocorrencia.png" alt="Manutenção" />
+          <p>Ocorrência</p>
         </div>
-      </section>
-    </>
+        <div className="service">
+          <img src="https://via.placeholder.com/50" alt="Comunicados" />
+          <p>Comunicados</p>
+        </div>
+        <div className="service">
+          <img src="https://via.placeholder.com/50" alt="Reservas" />
+          <p>Reservas</p>
+        </div>
+        <div className="service disabled">
+          <img src="https://via.placeholder.com/50" alt="Assembleia" />
+          <p>Assembleia</p>
+        </div>
+        <div className="service disabled">
+          <img src="https://via.placeholder.com/50" alt="Financeiro" />
+          <p>Financeiro</p>
+        </div>
+        <div className="service disabled">
+          <img src="https://via.placeholder.com/50" alt="Pagamentos" />
+          <p>Pagamentos</p>
+        </div>
+      </div>
+    </div>
   );
 }

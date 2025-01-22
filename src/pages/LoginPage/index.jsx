@@ -6,10 +6,7 @@ export default function LoginPage() {
       <section className="login-page">
         <div className="logo-container">
           <img src="/argus-icon.png" alt="Argus" className="icon" />
-          <div className="text">
-            <h1 className="gradient">ARGUS</h1>
-            <h1 className="stroke">ARGUS</h1>
-          </div>
+          <div className="text"></div>
         </div>
         <div className="login-forms">
           <div>
