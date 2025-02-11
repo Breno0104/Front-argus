@@ -2,14 +2,14 @@ splash-screen-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 50vw;
   height: 100vh;
 }
 .splash-screen-page a {
   text-align: center;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
   .splash-screen-page img {
-    width: 80%;
+    width: 50%;
   }
 }
