@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./style.css";
 
 export default function HomePage() {
-  // Estado para gerenciar a aba ativa
   const [activeTab, setActiveTab] = useState("Serviços");
 
   return (
@@ -55,7 +54,7 @@ export default function HomePage() {
 
           {/* Segunda linha */}
           <div className="services-row">
-            <div className="service assembleia">
+            <div className="service disabled">
               <img src="Assembleia.png" alt="Assembleia" />
               <p>Assembleia</p>
             </div>

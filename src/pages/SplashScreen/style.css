@@ -1,15 +1,22 @@
-splash-screen-page {
+.splash-screen-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
 }
+
 .splash-screen-page a {
   text-align: center;
 }
+
+.splash-screen-page img {
+  width: 500px;
+  height: auto;
+}
+
 @media (max-width: 1000px) {
   .splash-screen-page img {
-    width: 50%;
+    width: 100px;
   }
 }
