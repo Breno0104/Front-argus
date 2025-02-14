@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SplashScreen from "./pages/SplashScreen";
 import HomePage from "./pages/HomePage";
 import Ocorrencia from "./pages/Ocorrencia";
+import Comunicados from "./pages/Comunicados";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/manu" element={<Ocorrencia />} />
+        <Route path="/comu" element={<Comunicados />} />
       </Routes>
     </Router>
   </StrictMode>
