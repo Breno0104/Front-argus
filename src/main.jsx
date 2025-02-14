@@ -6,6 +6,8 @@ import SplashScreen from "./pages/SplashScreen";
 import HomePage from "./pages/HomePage";
 import Ocorrencia from "./pages/Ocorrencia";
 import Comunicados from "./pages/Comunicados";
+import Reserva from "./pages/Reserva";
+import ReservaForm from "./pages/ReservaForm";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -17,6 +19,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/home" element={<HomePage />} />
         <Route path="/manu" element={<Ocorrencia />} />
         <Route path="/comu" element={<Comunicados />} />
+        <Route path="/rese" element={<Reserva />} />
+        <Route path="/reservar" element={<ReservaForm />} />
       </Routes>
     </Router>
   </StrictMode>

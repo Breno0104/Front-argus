@@ -1,0 +1,73 @@
+/* Reserva.css */
+.reserva-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Adicione esta linha para centralizar o texto */
+}
+
+h1 {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.lugares-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.lugar-card {
+  width: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.lugar-card:hover {
+  transform: scale(1.05);
+}
+
+.lugar-imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.lugar-card h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 15px 0;
+}
+
+.reservar-button {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.reservar-button:hover {
+  background-color: #e67e00;
+}

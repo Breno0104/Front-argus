@@ -52,8 +52,10 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="service">
-              <img src="reserva.png" alt="Reservas" />
-              <p>Reservas</p>
+              <Link to="/rese">
+                <img src="reserva.png" alt="Reservas" />
+                <p>Reservas</p>
+              </Link>
             </div>
           </div>
 
