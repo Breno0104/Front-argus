@@ -35,8 +35,9 @@ export default function LoginPage() {
                 <p>Esqueci minha senha</p>
               </a>
             </div>
-
-            <input className="button" type="button" value="ENTRAR" />
+            <a href="/home">
+              <input className="button" type="button" value="ENTRAR" />
+            </a>
           </form>
         </div>
       </section>

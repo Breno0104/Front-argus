@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.css";
+import "./HomePage.css"; // Estilos específicos para a HomePage
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("Serviços");
@@ -39,8 +39,10 @@ export default function HomePage() {
           {/* Primeira linha */}
           <div className="services-row">
             <div className="service">
-              <img src="Ocorrencia.png" alt="Ocorrência" />
-              <p>Ocorrência</p>
+              <a href="/manu">
+                <img src="Ocorrencia.png" alt="Ocorrência" />
+                <p>Ocorrência</p>
+              </a>
             </div>
             <div className="service">
               <img src="comunicados.png" alt="Comunicados" />

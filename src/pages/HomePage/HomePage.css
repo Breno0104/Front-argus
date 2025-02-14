@@ -1,21 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
+/* HomePage.css */
 .home-page {
   text-align: center;
+  padding: 20px;
 }
 
 .header {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .header-image {
   width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 .header-content {
@@ -85,8 +82,7 @@ body {
 }
 
 .service p {
-  font-family: "Roboto Condensed";
-  font-style: normal;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 800;
   font-size: 16px;
   line-height: 19px;
@@ -96,8 +92,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
-  border: 0.5px solid rgba(37, 37, 37, 0.25);
 }
 
 .service:hover {
@@ -110,7 +104,7 @@ body {
 }
 
 .norma {
-  background-color: #ff8c00; /* Laranja */
+  background-color: #ff8c00;
   color: white;
   font-weight: bold;
   padding: 15px;
