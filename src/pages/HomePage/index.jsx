@@ -1,15 +1,74 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css"; // Estilos específicos para a HomePage
+import { jwtDecode } from "jwt-decode";
+import "./HomePage.css";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("Serviços");
+  const [userName, setUserName] = useState("Usuário");
+  const [setUserCpf] = useState(""); // Estado para armazenar o CPF
+
+  useEffect(() => {
+    // Função para obter os dados do usuário a partir do token JWT
+    const fetchUserData = async () => {
+      try {
+        // Obtém o token JWT do localStorage (ou onde você armazenou o token)
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+          throw new Error("Token não encontrado");
+        }
+
+        // Decodifica o token para obter o id do usuário
+        const decodedToken = jwtDecode(token);
+        console.log(decodedToken); // Verifique a estrutura do token
+
+        // Usando 'sub' como ID do usuário
+        const userId = decodedToken.sub;
+        if (!userId) {
+          throw new Error("ID do usuário não encontrado no token");
+        }
+
+        // Verifica se o token tem expiração e está válido (opcional)
+        const expirationTime = decodedToken.exp * 1000; // Convertendo expiração para milissegundos
+        if (expirationTime < Date.now()) {
+          throw new Error("Token expirado");
+        }
+
+        // Faz a requisição para a API com o id do usuário
+        const response = await fetch(
+          `http://localhost:8080/usuarios/cpf/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`, // Passando o token no cabeçalho
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Erro ao buscar dados do usuário");
+        }
+
+        const userData = await response.json();
+        console.log(userData); // Verifique a estrutura de dados retornada
+
+        // Armazenando o nome e o CPF do usuário
+        setUserName(userData.nome); // Define o nome do usuário no estado
+        setUserCpf(userData.cpf || "CPF não encontrado"); // Defina o CPF se presente
+      } catch (error) {
+        console.error("Erro ao carregar os dados do usuário:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
     <div className="home-page">
-      <header className="header">
+      <header className="headerHome">
         <div className="header-content">
-          <h1>Bem-Vindo, Usuario</h1>
+          <h1>Bem-Vindo, {userName}</h1>
         </div>
         <img
           src="header.png"

@@ -88,6 +88,9 @@ export default function LoginPage() {
             <button className="button" type="submit" disabled={isLoading}>
               {isLoading ? "Carregando..." : "ENTRAR"}
             </button>
+            <a href="./register">
+              <input className="button" type="button" value="REGISTRAR-SE" />
+            </a>
           </form>
         </div>
       </section>

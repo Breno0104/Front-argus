@@ -8,6 +8,8 @@ import Ocorrencia from "./pages/Ocorrencia";
 import Comunicados from "./pages/Comunicados";
 import Reserva from "./pages/Reserva";
 import ReservaForm from "./pages/ReservaForm";
+import CadastroPage from "./pages/CadastroPage";
+
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -21,6 +23,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/comu" element={<Comunicados />} />
         <Route path="/rese" element={<Reserva />} />
         <Route path="/reservar" element={<ReservaForm />} />
+        <Route path="/register" element={<CadastroPage />} />
       </Routes>
     </Router>
   </StrictMode>
