@@ -1,0 +1,266 @@
+@import url(../../variables.css);
+
+/* Estilos gerais da página */
+.register-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh; /* Altura mínima da tela inteira */
+  background-image: var(--foreground-color);
+  padding: 2rem; /* Espaçamento interno */
+}
+
+/* Container do logo */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.register-container .icon {
+  width: 100%; /* Ajuste para telas menores */
+}
+
+.register-container .text {
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.register-container .gradient {
+  position: relative;
+  font-size: 3rem; /* Tamanho relativo */
+  background: var(--main-color);
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+
+.register-container .stroke {
+  font-size: 3rem; /* Tamanho relativo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8);
+  z-index: 0;
+}
+
+/* Container do formulário */
+.register-forms {
+  background-color: rgba(25, 25, 25, 0.75);
+  border-radius: 25px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px; /* Largura máxima do formulário */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-forms .title {
+  color: #ff7f00;
+  font-size: 2rem; /* Tamanho relativo */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.register-forms .description {
+  color: var(--background-main-color);
+  font-size: 1.2rem; /* Tamanho relativo */
+  font-weight: 300;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.register-forms form {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaçamento entre os campos */
+}
+
+.register-forms label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem; /* Tamanho relativo */
+  font-weight: 600;
+  color: var(--background-main-color);
+}
+
+/* Campos do formulário */
+.fields-options input[type="text"],
+.fields-options input[type="email"],
+.fields-options input[type="password"] {
+  width: 100%;
+  height: 40px; /* Altura fixa para melhor usabilidade */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem; /* Tamanho relativo */
+  color: #000;
+}
+
+/* Termos e condições */
+.additional-options {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.additional-options label {
+  font-weight: 300;
+  font-size: 1rem; /* Tamanho relativo */
+  color: var(--background-main-color);
+}
+
+.additional-options input[type="checkbox"] {
+  appearance: none;
+  width: 20px; /* Tamanho fixo */
+  height: 20px; /* Tamanho fixo */
+  border: 2px solid var(--background-main-color);
+  border-radius: 3px;
+  background-color: var(--background-main-color);
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.additional-options input[type="checkbox"]:checked {
+  background-color: #ff7f00;
+  border-color: #ff4500;
+}
+
+/* Botão de cadastro */
+.register-forms .register-button {
+  width: 100%;
+  height: 40px; /* Altura fixa */
+  background-image: var(--main-color);
+  color: white;
+  font-size: 1rem; /* Tamanho relativo */
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.register-forms .register-button:hover {
+  opacity: 0.9;
+}
+
+/* Link para login */
+.register-link {
+  color: #ff7f00;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link p {
+  color: var(--background-main-color);
+  font-size: 1rem; /* Tamanho relativo */
+  font-weight: 300;
+}
+
+.register-link a {
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .register-page {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem; /* Espaçamento entre o logo e o formulário */
+  }
+
+  .register-container .icon {
+    max-width: 150px; /* Reduz o tamanho do ícone */
+  }
+
+  .register-container .gradient,
+  .register-container .stroke {
+    font-size: 2rem; /* Reduz o tamanho do texto */
+  }
+
+  .register-forms {
+    padding: 1.5rem;
+  }
+
+  .register-forms .title {
+    font-size: 1.8rem;
+  }
+
+  .register-forms .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-page {
+    padding: 1rem;
+  }
+
+  .register-container .icon {
+    max-width: 120px;
+  }
+
+  .register-container .gradient,
+  .register-container .stroke {
+    font-size: 1.5rem;
+  }
+
+  .register-forms {
+    padding: 1rem;
+  }
+
+  .register-forms .title {
+    font-size: 1.5rem;
+  }
+
+  .register-forms .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container .icon {
+    max-width: 100px;
+  }
+
+  .register-container .gradient,
+  .register-container .stroke {
+    font-size: 1.2rem;
+  }
+
+  .register-forms .title {
+    font-size: 1.2rem;
+  }
+
+  .register-forms .description {
+    font-size: 0.8rem;
+  }
+
+  .register-forms input[type="text"],
+  .register-forms input[type="email"],
+  .register-forms input[type="password"] {
+    height: 35px; /* Altura menor para telas pequenas */
+    font-size: 0.9rem;
+  }
+
+  .register-forms .register-button {
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
