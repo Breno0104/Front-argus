@@ -7,6 +7,7 @@ function ReservaForm() {
   const lugar = location.state?.lugar;
 
   const [areas, setAreas] = useState([]);
+  const [reservas, setReservas] = useState([]);
   const [areaNome, setAreaNome] = useState("");
   const [dataReserva, setDataReserva] = useState("");
   const [horaInicio, setHoraInicio] = useState("");
@@ -16,7 +17,6 @@ function ReservaForm() {
     const fetchAreas = async () => {
       try {
         const token = localStorage.getItem("authToken");
-
         if (!token) {
           console.error("Token de autenticação não encontrado!");
           return;
@@ -44,22 +44,44 @@ function ReservaForm() {
       }
     };
 
-    fetchAreas();
-  }, []);
+    const fetchReservas = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          console.error("Token de autenticação não encontrado!");
+          return;
+        }
 
-  if (!lugar) {
-    return <div>Erro: Lugar não encontrado.</div>;
-  }
+        const response = await fetch("http://localhost:8080/reservas", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setReservas(data);
+        } else {
+          console.error("Erro ao buscar reservas. Status:", response.status);
+        }
+      } catch (error) {
+        console.error("Erro ao conectar-se ao servidor", error);
+      }
+    };
+
+    fetchAreas();
+    fetchReservas();
+  }, []);
 
   const handleReserva = async () => {
     const token = localStorage.getItem("authToken");
-
     if (!token) {
       alert("Erro: Token de autenticação não encontrado!");
       return;
     }
 
-    // Converter data para formato dd/MM/yyyy
     const [year, month, day] = dataReserva.split("-");
     const formattedDataReserva = `${day}/${month}/${year}`;
 
@@ -82,6 +104,7 @@ function ReservaForm() {
 
       if (response.ok) {
         alert("Reserva feita com sucesso!");
+        setReservas([...reservas, reservaData]); // Atualiza a lista de reservas
       } else {
         alert("Erro ao realizar a reserva. Status: " + response.status);
       }
@@ -131,6 +154,16 @@ function ReservaForm() {
         Reservar
       </button>
       <button className="cancelar-button">Cancelar</button>
+
+      <h2>Reservas Atuais</h2>
+      <ul>
+        {reservas.map((reserva, index) => (
+          <li key={index}>
+            <strong>{reserva.areaNome}</strong> - {reserva.dataReserva} das{" "}
+            {reserva.horaInicio} às {reserva.horaFim}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
