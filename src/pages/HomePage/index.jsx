@@ -109,7 +109,7 @@ export default function HomePage() {
           {/* Primeira linha */}
           <div className="services-row">
             <div className="service">
-              <Link to="/manu">
+              <Link to={userType === "ADMIN" ? "/manusin" : "/manu"}>
                 <img src="Ocorrencia.png" alt="Ocorrência" />
                 <p>Ocorrência</p>
               </Link>

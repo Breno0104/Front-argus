@@ -1,0 +1,56 @@
+/* Ocorrencia.css */
+.ocorrencia-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.solicitacao input {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  margin: 25px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.enviar-button {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.enviar-button:hover {
+  background-color: #e67e00;
+}
+
+.caroeier {
+  font-size: 20px;
+  color: #888;
+  text-align: center;
+  margin-top: 40px;
+}
