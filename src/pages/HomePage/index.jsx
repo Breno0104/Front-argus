@@ -6,7 +6,7 @@ import "./HomePage.css";
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("Serviços");
   const [userName, setUserName] = useState("Usuário");
-  const [setUserCpf] = useState(""); // Estado para armazenar o CPF
+  const [userType, setUserType] = useState(""); // Estado para armazenar o tipo de usuário
 
   useEffect(() => {
     // Função para obter os dados do usuário a partir do token JWT
@@ -21,18 +21,12 @@ export default function HomePage() {
 
         // Decodifica o token para obter o id do usuário
         const decodedToken = jwtDecode(token);
-        console.log(decodedToken); // Verifique a estrutura do token
+        console.log("Decoded Token:", decodedToken); // Verifique a estrutura do token
 
         // Usando 'sub' como ID do usuário
         const userId = decodedToken.sub;
         if (!userId) {
           throw new Error("ID do usuário não encontrado no token");
-        }
-
-        // Verifica se o token tem expiração e está válido (opcional)
-        const expirationTime = decodedToken.exp * 1000; // Convertendo expiração para milissegundos
-        if (expirationTime < Date.now()) {
-          throw new Error("Token expirado");
         }
 
         // Faz a requisição para a API com o id do usuário
@@ -51,11 +45,27 @@ export default function HomePage() {
         }
 
         const userData = await response.json();
-        console.log(userData); // Verifique a estrutura de dados retornada
+        console.log("User Data:", userData); // Verifique a estrutura de dados retornada
 
         // Armazenando o nome e o CPF do usuário
         setUserName(userData.nome); // Define o nome do usuário no estado
-        setUserCpf(userData.cpf || "CPF não encontrado"); // Defina o CPF se presente
+        setUserType(userData.tipoDoUsuario);
+
+        // Verifique o campo tipoDoUsuario e logue
+        console.log("Tipo de usuário: MOSTRATO AQUI", userData.tipoDoUsuario);
+
+        // Verifica se o tipo de usuário é válido (ADMIN ou MORADOR) com base no campo 'tipoDoUsuario'
+        const userTipo =
+          userData.tipoDoUsuario &&
+          (userData.tipoDoUsuario === "ADMIN" ||
+            userData.tipoDoUsuario === "MORADOR")
+            ? userData.tipoDoUsuario
+            : "MORADOR"; // Se tipoDoUsuario for nulo ou não válido, assume 'MORADOR'
+
+        // Verificando o valor de userTipo antes de atualizar o estado
+        console.log("Tipo de usuário após verificação:", userTipo);
+
+        setUserType(userTipo); // Define o tipo de usuário no estado
       } catch (error) {
         console.error("Erro ao carregar os dados do usuário:", error);
       }
@@ -105,7 +115,9 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="service">
-              <Link to="/comu">
+              <Link to={userType === "ADMIN" ? "/comusin" : "/comu"}>
+                {" "}
+                {/* Verifica o tipo de usuário */}
                 <img src="comunicados.png" alt="Comunicados" />
                 <p>Comunicados</p>
               </Link>

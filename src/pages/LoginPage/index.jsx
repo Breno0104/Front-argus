@@ -14,10 +14,15 @@ export default function LoginPage() {
     setErrorMessage("");
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
-        cpf,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:8080/auth/login",
+        { cpf, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.status === 200) {
         const token = response.data.token;

@@ -1,0 +1,115 @@
+/* CondoNotices.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8fafc; /* Cor de fundo mais suave */
+  min-height: 100vh;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.header {
+  background-color: #1e3a8a; /* Cor mais escura para o cabeçalho */
+  width: 100%;
+  max-width: 1024px;
+  padding: 30px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 250px; /* Tamanho mais equilibrado para a imagem */
+  height: 150px;
+  object-fit: contain;
+}
+
+.create-notice-form {
+  background-color: #ffffff;
+  padding: 24px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1024px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.create-notice-form input,
+.create-notice-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.create-notice-form input:focus,
+.create-notice-form textarea:focus {
+  border-color: #1e3a8a; /* Cor de borda ao focar no input */
+  outline: none;
+}
+
+.create-notice-form button {
+  background-color: #f97316; /* Cor de fundo laranja */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-notice-form button:hover {
+  background-color: #d97b14; /* Cor mais escura ao passar o mouse */
+}
+
+.notices {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1024px;
+  padding: 24px;
+  margin-top: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notice {
+  background-color: #f97316; /* Cor do fundo dos comunicados */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.notice p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.notice span {
+  font-size: 14px;
+  font-weight: lighter;
+  display: block;
+  margin-top: 10px;
+}
+
+.loading {
+  color: #374151;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+}
